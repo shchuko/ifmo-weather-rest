@@ -1,13 +1,20 @@
-const express        = require('express');
-const MongoClient    = require('mongodb').MongoClient;
-const bodyParser     = require('body-parser');
-const app            = express();
-const port = 8075;
+const express = require("express");
+const bodyParser = require("body-parser");
+const db = require("db/config");
+const mongoose = require("mongoose");
 
-app.use(bodyParser.urlencoded({ extended: true }));
 
-require('./app/routes')(app, {});
+const app = express();
+const port = 8076;
 
-app.listen(port, () => {
-    console.log('We are live on ' + port);
-});
+app.use(bodyParser.urlencoded({extended: true}));
+
+mongoose.connect(db.url, {useUnifiedTopology: true, useNewUrlParser: true, useFindAndModify: false})
+    .then((mongoose) => {
+        require("app/routes")(app, mongoose);
+
+        app.listen(port, () => {
+            console.log("The sever is started...");
+        });
+    })
+    .catch(console.log);
