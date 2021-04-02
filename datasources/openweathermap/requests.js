@@ -1,5 +1,5 @@
 const fetch = require("node-fetch");
-const OpenWeatherMapWeatherData = require("datasources/openweathermap/weather_data");
+const OpenWeatherMapWeatherData = require("./weather_data");
 const config = require("./config");
 
 async function requestWeatherInfo(params) {

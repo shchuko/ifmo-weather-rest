@@ -1,4 +1,4 @@
-const openWeatherMapRequests = require("datasources/openweathermap/requests");
+const openWeatherMapRequests = require("../../datasources/openweathermap/requests");
 
 module.exports = function (app) {
     app.get("/weather/city", (req, res) => {

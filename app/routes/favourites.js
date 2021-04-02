@@ -1,5 +1,5 @@
-const openWeatherMapRequests = require("datasources/openweathermap/requests");
-const getFavoriteCityModel = require("db/favourite_city_model");
+const openWeatherMapRequests = require("../../datasources/openweathermap/requests");
+const getFavoriteCityModel = require("../../db/favourite_city_model");
 
 module.exports = function (app, mongoose) {
     const favoriteCity = getFavoriteCityModel(mongoose);

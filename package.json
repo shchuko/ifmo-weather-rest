@@ -4,7 +4,7 @@
   "description": "ifmo-weather-rest",
   "main": "server.js",
   "scripts": {
-    "dev": "./create-symlinks.sh; nodemon server.js"
+    "dev": "nodemon server.js"
   },
   "author": "Vladislav Yaroshchuk",
   "license": "MIT",

@@ -1,4 +1,4 @@
-const WeatherDataTemplate = require("datasources/templates/weather-data-template");
+const WeatherDataTemplate = require("../templates/weather-data-template");
 
 class OpenWeatherMapWeatherData extends WeatherDataTemplate {
     constructor(response) {
