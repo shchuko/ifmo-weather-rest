@@ -2,6 +2,8 @@
 
 Node.JS Wrapper for OpenWeatherMap API
 
+The frontend is [here](https://github.com/shchuko/ifmo-weather/tree/fork/my-backend)
+
 ## Weather requests endpoints
 
 ### `/weather/city` endpoint
