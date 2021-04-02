@@ -1,13 +1,13 @@
 const express = require("express");
-const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
+const cors = require('cors');
 const db = require("./db/config");
 const config = require("./config");
 
 const app = express();
 const port = config.port;
 
-app.use(bodyParser.urlencoded({extended: true}));
+app.use(cors());
 
 mongoose.set("useCreateIndex", true);
 
