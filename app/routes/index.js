@@ -26,7 +26,7 @@ module.exports = function (app, favouritesStorage) {
     }));
 
     app.get("/favourites", asyncHandler(async (req, res) => {
-        res.send(await favouritesStorage.getAll());
+        res.send({favouriteCitiesNames: await favouritesStorage.getAll()});
     }));
 
     app.post("/favourites", asyncHandler(async (req, res) => {
