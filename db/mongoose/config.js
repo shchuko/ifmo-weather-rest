@@ -8,7 +8,7 @@ function getUrlFromEnv() {
         throw new Error("MONGODB_USER env variable is not set");
     }
 
-    return `mongodb+srv://${user}:${password}@cluster0.fycwi.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`;
+    return `mongodb+srv://${user}:${password}@cluster0.fycwi.mongodb.net/weatherDatabase?retryWrites=true&w=majority`;
 }
 
 module.exports = {
