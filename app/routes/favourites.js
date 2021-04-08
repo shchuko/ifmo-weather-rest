@@ -33,7 +33,7 @@ module.exports = function (app, favouritesStorage) {
             return;
         }
 
-        res.status(200).send(json);
+        res.status(201).send(json);
         await favouritesStorage.addWithName(cityName);
     }));
 
