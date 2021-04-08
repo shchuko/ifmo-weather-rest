@@ -1,24 +1,28 @@
+const asyncHandler = require("express-async-handler");
+
 const openWeatherMapRequests = require("../../datasources/openweathermap/requests");
 
 module.exports = function (app) {
-    app.get("/weather/city", (req, res) => {
+    app.get("/weather/city", asyncHandler(async (req, res) => {
         const cityName = req.query.q;
 
-        openWeatherMapRequests.requestWeatherByName(cityName)
-            .then(json => {
-                res.send(json);
-            })
-            .catch(() => res.status(404).send("Not found"));
-    });
+        const json = await openWeatherMapRequests.requestWeatherByName(cityName);
+        if (json == null) {
+            res.status(404).send();
+            return;
+        }
+        res.send(json);
+    }));
 
-    app.get("/weather/coordinates", (req, res) => {
+    app.get("/weather/coordinates", asyncHandler(async (req, res) => {
         const lat = req.query.lat;
         const lon = req.query.long;
 
-        openWeatherMapRequests.requestWeatherByLocation(lat, lon)
-            .then(json => {
-                res.send(json);
-            })
-            .catch(() => res.status(404).send("Not found"));
-    });
+        const json = await openWeatherMapRequests.requestWeatherByLocation(lat, lon);
+        if (json == null) {
+            res.status(404).send();
+            return;
+        }
+        res.send(json);
+    }));
 };

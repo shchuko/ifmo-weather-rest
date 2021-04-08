@@ -17,7 +17,7 @@ async function requestWeatherInfo(params) {
         const json = await response.json();
         return new OpenWeatherMapWeatherData(json);
     }
-    throw new Error(`Request errored with status ${response.status}`);
+    return null;
 }
 
 async function requestWeatherByName(cityName) {
