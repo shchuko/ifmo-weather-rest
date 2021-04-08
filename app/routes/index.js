@@ -56,7 +56,7 @@ module.exports = function (app, favouritesStorage) {
         }
 
         res.status(201).send(json);
-        await favouritesStorage.addWithName(cityName);
+        await favouritesStorage.addWithName(json.name);
     }));
 
     app.delete("/favourites", asyncHandler(async (req, res) => {
