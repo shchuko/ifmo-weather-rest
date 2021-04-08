@@ -8,8 +8,9 @@ async function requestWeatherInfo(params) {
     url.searchParams.append("units", "metric");
 
     for (const param in params) {
-        // noinspection JSUnfilteredForInLoop
-        url.searchParams.append(param, params[param]);
+        if (params.hasOwnProperty(param)) {
+            url.searchParams.append(param, params[param]);
+        }
     }
 
     let response = await fetch(url);
